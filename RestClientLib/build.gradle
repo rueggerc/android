@@ -16,6 +16,10 @@ dependencies {
 	testCompile 'junit:junit:4.12'
 }
 
+task showCache << {
+  configurations.compile.each { println it }
+}
+
 test {
 	testLogging {
 		events "PASSED", "STARTED", "FAILED", "SKIPPED"
