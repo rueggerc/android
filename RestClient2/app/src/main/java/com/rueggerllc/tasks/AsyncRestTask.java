@@ -20,7 +20,7 @@ import java.util.List;
 /**
  * Generics Parameters:
  * doInBackground(Parameters Vararg)
- * onProgressUpdate(Paramters Vararg)
+ * onProgressUpdate(Parameters Vararg)
  * Result for doInBackground(), InputParm to onPostExecute()
  */
 public class AsyncRestTask extends AsyncTask<String,Integer,String> {
