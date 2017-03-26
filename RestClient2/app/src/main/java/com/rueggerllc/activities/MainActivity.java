@@ -1,4 +1,4 @@
-package com.rueggerllc.restclient;
+package com.rueggerllc.activities;
 
 import android.content.Intent;
 import android.graphics.Bitmap;
@@ -17,6 +17,7 @@ import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import com.rueggerllc.restclient.util.Util;
 import com.rueggerllc.tasks.AsyncRestTask;
 import com.rueggerllc.tasks.DownloadImageTask;
 import com.rueggerllc.util.Constants;
@@ -27,8 +28,6 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import static android.icu.lang.UCharacter.GraphemeClusterBreak.L;
 
 /**
  * Here is a comment
@@ -73,9 +72,14 @@ public class MainActivity extends AppCompatActivity {
         LinearLayout linearLayout = (LinearLayout)findViewById(R.id.activity_main);
         linearLayout.addView(imageView);
 
-        DownloadImageTask task = new DownloadImageTask(this);
-        String imageURL = "http://rueggerconsultingllc.com/struts1WAR/downloadServlet?type=pet&id=ff808181579482a40157aafe03970000";
-        task.execute(new String[] {imageURL});
+        // DownloadImageTask task = new DownloadImageTask(this);
+        // String imageURL = "http://rueggerconsultingllc.com/struts1WAR/downloadServlet?type=pet&id=ff808181579482a40157aafe03970000";
+        // task.execute(new String[] {imageURL});
+
+        String foo = "foobar";
+        boolean isBlank = Util.isBlank(foo);
+
+
         logger.debug("Main Activity Startup");
     }
 

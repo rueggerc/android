@@ -8,7 +8,7 @@ import android.widget.TextView;
 import com.rueggerllc.client.BookClient;
 import com.rueggerllc.client.OrderClient;
 import com.rueggerllc.client.OrderClientJersey;
-import com.rueggerllc.restclient.MainActivity;
+import com.rueggerllc.activities.MainActivity;
 import com.rueggerllc.util.Constants;
 import com.rueggerllc.util.Logger;
 

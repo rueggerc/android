@@ -6,7 +6,7 @@ import android.os.AsyncTask;
 import android.util.Log;
 
 import com.rueggerllc.client.BookClient;
-import com.rueggerllc.restclient.MainActivity;
+import com.rueggerllc.activities.MainActivity;
 import com.rueggerllc.util.Constants;
 import com.rueggerllc.util.Logger;
 

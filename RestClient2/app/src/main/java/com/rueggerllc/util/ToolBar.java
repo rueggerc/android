@@ -4,7 +4,7 @@ package com.rueggerllc.util;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 
-import com.rueggerllc.restclient.R;
+import com.rueggerllc.activities.R;
 
 public class ToolBar {
 
