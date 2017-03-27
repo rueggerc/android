@@ -21,8 +21,10 @@ dependencies {
 	testCompile 'junit:junit:4.12'
 }
 
-task showCache << {
-  configurations.compile.each { println it }
+task showCache {
+  doLast {
+    configurations.compile.each { println it }
+  }
 }
 
 test {
