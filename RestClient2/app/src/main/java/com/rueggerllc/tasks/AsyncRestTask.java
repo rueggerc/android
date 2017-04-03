@@ -6,9 +6,11 @@ import android.util.Log;
 import android.widget.TextView;
 
 import com.rueggerllc.client.BookClient;
-import com.rueggerllc.client.OrderClient;
+import com.rueggerllc.client.ClientFactory;
 import com.rueggerllc.client.OrderClientJersey;
 import com.rueggerllc.activities.MainActivity;
+import com.rueggerllc.restlib.beans.Order;
+import com.rueggerllc.restlib.client.OrderClient;
 import com.rueggerllc.util.Constants;
 import com.rueggerllc.util.Logger;
 
@@ -46,6 +48,9 @@ public class AsyncRestTask extends AsyncTask<String,Integer,String> {
             String result = client.getBooks();
             Log.d("RestClient", "Results=\n" + result);
             publishProgress(100);
+
+            getOrders();
+
             if (result == null) {
                 return null;
             } else {
@@ -68,6 +73,19 @@ public class AsyncRestTask extends AsyncTask<String,Integer,String> {
             } else {
                 mainActivity.buildList(result);
             }
+
+        }
+
+        private void getOrders() {
+            logger.debug("====== GET ORDERS BEGIN =====");
+            ClientFactory clientFactory = ClientFactory.getInstance();
+            OrderClient orderClient = clientFactory.getOrderClient();
+            List<Order> orders = orderClient.getOrders();
+            for (Order order : orders) {
+                logger.debug("Next Order=\n" + order);
+            }
+
+
 
         }
 
