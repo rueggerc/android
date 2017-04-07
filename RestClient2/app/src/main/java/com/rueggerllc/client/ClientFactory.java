@@ -30,4 +30,11 @@ public class ClientFactory {
         return orderClient;
     }
 
+    public BookClient getBookClient() {
+        if (bookClient == null) {
+            bookClient = new BookClient(APPLICATION);
+        }
+        return bookClient;
+    }
+
 }

@@ -60,6 +60,9 @@ public class BookClient {
 				JSONObject book = books.getJSONObject(i);
 				String title = book.getString("title");
 				logger.info("Next Book=" + title);
+				
+				
+				
 			}
 	     
 			

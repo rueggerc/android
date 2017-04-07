@@ -18,6 +18,7 @@ import android.widget.ListView;
 import android.widget.Toast;
 
 import com.rueggerllc.restclient.util.Util;
+import com.rueggerllc.restlib.beans.Book;
 import com.rueggerllc.tasks.AsyncRestTask;
 import com.rueggerllc.tasks.DownloadImageTask;
 import com.rueggerllc.util.Constants;
@@ -187,6 +188,7 @@ public class MainActivity extends AppCompatActivity {
         Toast.makeText(getApplicationContext(), "Error Retrieving Data", Toast.LENGTH_SHORT).show();
     }
 
+    /*
     private void parseResponse(String response) {
         try {
             JSONArray books = new JSONArray(response);
@@ -200,16 +202,22 @@ public class MainActivity extends AppCompatActivity {
 
         }
     }
+    */
 
 
     public void setImage(Bitmap bitmap) {
         imageView.setImageBitmap(bitmap);
     }
 
-    public void buildList(String response) {
+    public void buildList(List<Book> books) {
         try {
             logger.debug("Building List After Call");
-            parseResponse(response);
+            for (Book book :  books) {
+                String title = book.getTitle();
+                getBookList().add(title);
+            }
+
+            // parseResponse(response);
             ViewGroup layout = (ViewGroup) findViewById(R.id.activity_main);
             logger.debug("CHILD COUNT=" + layout.getChildCount());
             if (bookListView != null) {

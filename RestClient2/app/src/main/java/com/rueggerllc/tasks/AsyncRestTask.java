@@ -1,31 +1,31 @@
 package com.rueggerllc.tasks;
 
-import android.content.Context;
 import android.os.AsyncTask;
 import android.util.Log;
-import android.widget.TextView;
 
-import com.rueggerllc.client.BookClient;
+
+
 import com.rueggerllc.client.ClientFactory;
-import com.rueggerllc.client.OrderClientJersey;
 import com.rueggerllc.activities.MainActivity;
+import com.rueggerllc.restlib.beans.Book;
 import com.rueggerllc.restlib.beans.Order;
+import com.rueggerllc.restlib.client.BookClient;
 import com.rueggerllc.restlib.client.OrderClient;
 import com.rueggerllc.util.Constants;
 import com.rueggerllc.util.Logger;
 
-import org.json.JSONArray;
-import org.json.JSONObject;
+
 
 import java.util.List;
 
 /**
  * Generics Parameters:
- * doInBackground(Parameters Vararg)
- * onProgressUpdate(Parameters Vararg)
- * Result for doInBackground(), InputParm to onPostExecute()
+ * AsyncTask<A, B, C>
+ * doInBackground(A Vararg)
+ * onProgressUpdate(B Vararg)
+ * C doInBackground(), onPostExecute(C)
  */
-public class AsyncRestTask extends AsyncTask<String,Integer,String> {
+public class AsyncRestTask extends AsyncTask<String, Integer, List<Book>> {
 
         private Logger logger = new Logger();
         private MainActivity mainActivity;
@@ -41,11 +41,13 @@ public class AsyncRestTask extends AsyncTask<String,Integer,String> {
 
 
         @Override
-        protected String doInBackground(String...urls) {
+        protected List<Book> doInBackground(String...urls) {
             Log.d("RestClient", "Async REST Task: " + urls[0]);
             Log.d("RestClient", "Connecting to Web Service!");
-            BookClient client = new BookClient(Constants.GET_BOOKS_URL);
-            String result = client.getBooks();
+            ClientFactory clientFactory = ClientFactory.getInstance();
+            BookClient bookClient = clientFactory.getBookClient();
+
+            List<Book> result = bookClient.getBooks();
             Log.d("RestClient", "Results=\n" + result);
             publishProgress(100);
 
@@ -66,7 +68,7 @@ public class AsyncRestTask extends AsyncTask<String,Integer,String> {
         }
 
         @Override
-        protected void onPostExecute(String result) {
+        protected void onPostExecute(List<Book> result) {
             logger.debug("onPostExecute()=" + result);
             if (result == null) {
                 mainActivity.buildError();
@@ -80,30 +82,20 @@ public class AsyncRestTask extends AsyncTask<String,Integer,String> {
             logger.debug("====== GET ORDERS BEGIN =====");
             ClientFactory clientFactory = ClientFactory.getInstance();
             OrderClient orderClient = clientFactory.getOrderClient();
+            BookClient bookClient = clientFactory.getBookClient();
+
             List<Order> orders = orderClient.getOrders();
             for (Order order : orders) {
                 logger.debug("Next Order=\n" + order);
             }
 
+            orderClient.foo();
+            orderClient.bar();
+
 
 
         }
 
-
-
-//        private void parseResponse(String response) {
-//            try {
-//                JSONArray books = new JSONArray(response);
-//                for (int i = 0; i < books.length(); i++) {
-//                    JSONObject book = books.getJSONObject(i);
-//                    String title = book.getString("title");
-//                    mainActivity.getBookList().add(title);
-//                    logger.debug("Added=" + title);
-//                }
-//            } catch (Exception e) {
-//
-//            }
-//        }
 
 
 
