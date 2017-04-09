@@ -37,22 +37,22 @@ public class AsyncTaskBookClient extends AsyncTask<String, Integer, List<Book>> 
 
         @Override
         protected List<Book> doInBackground(String...urls) {
-            Log.d("RestClient", "Async REST Task: " + urls[0]);
-            Log.d("RestClient", "Connecting to Web Service!");
+            logger.debug("AsyncTaskBookClient: " + urls[0]);
+            logger.debug("Connecting to Web Service!");
             ClientFactory clientFactory = ClientFactory.getInstance();
             BookClient bookClient = clientFactory.getBookClient();
 
-            List<Book> result = bookClient.getBooks();
-            Log.d("RestClient", "Results=\n" + result);
+            List<Book> books = bookClient.getBooks();
+            logger.debug("Results=\n" + books);
             publishProgress(100);
 
             getOrders();
 
-            if (result == null) {
+            if (books == null) {
                 return null;
             } else {
                 // parseResponse(result);
-                return result;
+                return books;
             }
 
         }

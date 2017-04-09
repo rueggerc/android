@@ -20,9 +20,11 @@ import android.widget.Toast;
 import com.rueggerllc.restclient.util.Util;
 import com.rueggerllc.restlib.beans.Book;
 import com.rueggerllc.tasks.AsyncRestTask;
+import com.rueggerllc.tasks.AsyncTaskBookClient;
 import com.rueggerllc.tasks.DownloadImageTask;
 import com.rueggerllc.util.Constants;
 import com.rueggerllc.util.Logger;
+import com.squareup.picasso.Picasso;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -51,17 +53,24 @@ public class MainActivity extends AppCompatActivity {
 
         // Create Image View
         imageView = new ImageView(this);
+        String imageURL = "http://rueggerconsultingllc.com/RestWeb/downloadServlet?name=oscar.jpg";
+        Picasso.with(this)
+                .load(imageURL)
+                .resize(300, 300)
+                .centerCrop()
+                .into(imageView);
+
         // LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
         // LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.MATCH_PARENT);
 
         // LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(100,100);
         // imageView.setLayoutParams(lp);
 
-        final float scale = getResources().getDisplayMetrics().density;
-        int dpWidth = (int)(90*scale);
-        int dpHeight = (int)(120*scale);
-        LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(dpWidth, dpHeight);
-        imageView.setLayoutParams(lp);
+        // final float scale = getResources().getDisplayMetrics().density;
+        // int dpWidth = (int)(90*scale);
+        // int dpHeight = (int)(120*scale);
+        //  LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(dpWidth, dpHeight);
+        // imageView.setLayoutParams(lp);
 
 
 
@@ -176,9 +185,9 @@ public class MainActivity extends AppCompatActivity {
 
 
     public void callService(View view) {
-        Log.d("RestClient", "Get Books Begin");
+        logger.debug("Get Books Begin");
         bookList.clear();
-        AsyncRestTask task = new AsyncRestTask(this);
+        AsyncTaskBookClient task = new AsyncTaskBookClient(this);
         task.execute(new String[] {Constants.GET_BOOKS_URL});
         // Toast.makeText(getApplicationContext(), "Service Called", Toast.LENGTH_SHORT).show();
     }

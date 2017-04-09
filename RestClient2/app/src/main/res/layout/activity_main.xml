@@ -18,6 +18,8 @@
         android:id="@+id/getOrderButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@color/colorButtonBackground"
+        android:textColor="@color/colorWhite"
         android:text="Get Books"
         android:onClick="callService"/>
 

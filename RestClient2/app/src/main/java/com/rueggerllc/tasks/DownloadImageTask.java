@@ -3,11 +3,8 @@ package com.rueggerllc.tasks;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.AsyncTask;
-import android.util.Log;
 
-import com.rueggerllc.client.BookClient;
 import com.rueggerllc.activities.MainActivity;
-import com.rueggerllc.util.Constants;
 import com.rueggerllc.util.Logger;
 
 import java.io.InputStream;
