@@ -32,7 +32,7 @@ public class BookClient {
             String url = "http://rueggerconsultingllc.com/RestWeb/rest/books/books";
 
             Request request = new Request.Builder()
-                    // .header("Accept", "application/json")
+                    .header("Accept", "application/json")
                     .url(url)
                     .build();
 
@@ -43,6 +43,8 @@ public class BookClient {
             }
 
             String responseValue = response.body().string();
+            System.out.println("JSON=\n" + responseValue);
+
             JSONArray bookValues = new JSONArray(responseValue);
             for (int i = 0; i < bookValues.length(); i++) {
                 JSONObject bookValue = bookValues.getJSONObject(i);
