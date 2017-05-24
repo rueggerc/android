@@ -2,6 +2,7 @@ package com.rueggerllc.restlib.client;
 
 
 import com.rueggerllc.restlib.beans.Book;
+import com.rueggerllc.restlib.util.Logger;
 import com.squareup.okhttp.OkHttpClient;
 import com.squareup.okhttp.Request;
 import com.squareup.okhttp.Response;
@@ -17,9 +18,11 @@ import java.util.List;
 public class BookClient {
 
     private String application;
+    private Logger logger;
 
     public BookClient(String application) {
         this.application = application;
+        this.logger = new Logger(application);
     }
 
     public List<Book> getBooks() {

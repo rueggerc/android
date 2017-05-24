@@ -10,7 +10,6 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.ListView;
 
-import com.rueggerllc.activities.MainActivity;
 import com.rueggerllc.util.Logger;
 
 import java.util.ArrayList;

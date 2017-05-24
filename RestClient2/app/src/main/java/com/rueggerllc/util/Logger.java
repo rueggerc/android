@@ -2,6 +2,7 @@ package com.rueggerllc.util;
 
 
 import android.util.Log;
+
 import com.rueggerllc.activities.BuildConfig;
 
 public class Logger {

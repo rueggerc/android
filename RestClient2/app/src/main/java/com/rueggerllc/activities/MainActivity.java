@@ -5,7 +5,6 @@ import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -17,17 +16,11 @@ import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.Toast;
 
-import com.rueggerllc.restclient.util.Util;
 import com.rueggerllc.restlib.beans.Book;
-import com.rueggerllc.tasks.AsyncRestTask;
 import com.rueggerllc.tasks.AsyncTaskBookClient;
-import com.rueggerllc.tasks.DownloadImageTask;
 import com.rueggerllc.util.Constants;
 import com.rueggerllc.util.Logger;
 import com.squareup.picasso.Picasso;
-
-import org.json.JSONArray;
-import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -87,7 +80,7 @@ public class MainActivity extends AppCompatActivity {
         // task.execute(new String[] {imageURL});
 
         String foo = "foobar";
-        boolean isBlank = Util.isBlank(foo);
+        // boolean isBlank = Util.isBlank(foo);
 
 
         logger.debug("Main Activity Startup");

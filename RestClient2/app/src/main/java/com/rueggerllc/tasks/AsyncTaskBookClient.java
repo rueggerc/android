@@ -1,7 +1,6 @@
 package com.rueggerllc.tasks;
 
 import android.os.AsyncTask;
-import android.util.Log;
 
 import com.rueggerllc.activities.MainActivity;
 import com.rueggerllc.client.ClientFactory;

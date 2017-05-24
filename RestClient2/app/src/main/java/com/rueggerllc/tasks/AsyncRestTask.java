@@ -3,18 +3,13 @@ package com.rueggerllc.tasks;
 import android.os.AsyncTask;
 import android.util.Log;
 
-
-
-import com.rueggerllc.client.ClientFactory;
 import com.rueggerllc.activities.MainActivity;
+import com.rueggerllc.client.ClientFactory;
 import com.rueggerllc.restlib.beans.Book;
 import com.rueggerllc.restlib.beans.Order;
 import com.rueggerllc.restlib.client.BookClient;
 import com.rueggerllc.restlib.client.OrderClient;
-import com.rueggerllc.util.Constants;
 import com.rueggerllc.util.Logger;
-
-
 
 import java.util.List;
 

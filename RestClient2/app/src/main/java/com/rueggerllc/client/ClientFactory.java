@@ -1,8 +1,8 @@
 package com.rueggerllc.client;
 
 
-import com.rueggerllc.restlib.client.OrderClient;
 import com.rueggerllc.restlib.client.BookClient;
+import com.rueggerllc.restlib.client.OrderClient;
 
 public class ClientFactory {
 
