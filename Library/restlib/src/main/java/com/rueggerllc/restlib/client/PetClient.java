@@ -3,6 +3,7 @@ package com.rueggerllc.restlib.client;
 
 import com.rueggerllc.restlib.beans.Book;
 import com.rueggerllc.restlib.beans.Pet;
+import com.rueggerllc.restlib.util.Logger;
 import com.squareup.okhttp.OkHttpClient;
 import com.squareup.okhttp.Request;
 import com.squareup.okhttp.Response;
@@ -17,16 +18,18 @@ import java.util.List;
 
 public class PetClient {
 
-    private String application;
+    private Logger logger;
 
     public PetClient(String application) {
-        this.application = application;
+        logger = new Logger(application);
+        logger.info("Created Pet Client");
     }
 
-    public List<Pet> getBooks() {
+    public List<Pet> getPets() {
         List<Pet> pets = new ArrayList<>();
         try {
 
+            logger.info("==== GET PETS BEGIN ====");
             OkHttpClient client = new OkHttpClient();
 
             String url = "http://rueggerconsultingllc.com/RestWeb/rest/pets/pets";

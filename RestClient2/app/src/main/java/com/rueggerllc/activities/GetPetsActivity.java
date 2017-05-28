@@ -10,7 +10,8 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.ListView;
 
-import com.rueggerllc.util.Logger;
+import com.rueggerllc.restlib.util.Logger;
+import com.rueggerllc.util.Constants;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -20,7 +21,7 @@ import java.util.List;
  */
 public class GetPetsActivity extends AppCompatActivity {
 
-    private Logger logger = new Logger();
+    private Logger logger = new Logger(Constants.APPLICATION_NAME);
     private List<String> bookList = new ArrayList<String>();
     private ListView bookListView = null;
     private ImageView imageView = null;

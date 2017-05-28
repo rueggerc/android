@@ -47,7 +47,7 @@ public class PetClientTest {
     public void testGetPets() {
         System.out.println("Get Pets Begin");
         PetClient petClient = new PetClient(APPLICATION);
-        List<Pet> pets = petClient.getBooks();
+        List<Pet> pets = petClient.getPets();
         for (Pet pet : pets) {
             System.out.println("Next pet=\n" + pet);
         }

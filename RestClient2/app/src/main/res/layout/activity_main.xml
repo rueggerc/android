@@ -12,13 +12,41 @@
     </include>
 
     <Button
-        android:id="@+id/getOrderButton"
+        android:id="@+id/getBooksButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/colorButtonBackground"
         android:textColor="@color/colorWhite"
         android:text="Get Books"
-        android:onClick="callService"/>
+        android:onClick="callGetBooks"/>
+
+    <Button
+        android:id="@+id/createBookButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorButtonBackground"
+        android:textColor="@color/colorWhite"
+        android:text="Add Book"
+        android:onClick="callAddBook"/>
+
+    <Button
+        android:id="@+id/createPetButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorButtonBackground"
+        android:textColor="@color/colorWhite"
+        android:text="Add Pet"
+        android:onClick="callAddPet"/>
+
+    <Button
+        android:id="@+id/getPetsButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorButtonBackground"
+        android:textColor="@color/colorWhite"
+        android:text="Get Pets"
+        android:onClick="callGetPets"/>
+
 
     <LinearLayout
         android:id="@+id/photos"

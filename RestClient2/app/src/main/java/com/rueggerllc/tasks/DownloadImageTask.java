@@ -5,7 +5,8 @@ import android.graphics.BitmapFactory;
 import android.os.AsyncTask;
 
 import com.rueggerllc.activities.MainActivity;
-import com.rueggerllc.util.Logger;
+import com.rueggerllc.restlib.util.Logger;
+import com.rueggerllc.util.Constants;
 
 import java.io.InputStream;
 
@@ -17,7 +18,7 @@ import java.io.InputStream;
  */
 public class DownloadImageTask extends AsyncTask<String,Integer,Bitmap> {
 
-        private Logger logger = new Logger();
+        private Logger logger = new Logger(Constants.APPLICATION_NAME);
         private MainActivity mainActivity;
 
         public DownloadImageTask(MainActivity mainActivity) {

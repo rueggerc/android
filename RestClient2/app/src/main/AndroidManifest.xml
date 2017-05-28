@@ -19,6 +19,8 @@
         </activity>
         <activity android:name=".DisplayBookDetailsActivity"/>
         <activity android:name=".GetPetsActivity"/>
+        <activity android:name=".AddBookActivity"/>
+        <activity android:name=".AddPetActivity"/>
     </application>
 
 </manifest>

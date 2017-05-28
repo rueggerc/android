@@ -17,20 +17,18 @@ import android.widget.ListView;
 import android.widget.Toast;
 
 import com.rueggerllc.restlib.beans.Book;
+import com.rueggerllc.restlib.util.Logger;
 import com.rueggerllc.tasks.AsyncTaskBookClient;
 import com.rueggerllc.util.Constants;
-import com.rueggerllc.util.Logger;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Here is a comment
- */
+// Main Activity
 public class MainActivity extends AppCompatActivity {
 
-    private Logger logger = new Logger();
+    private Logger logger = new Logger(Constants.APPLICATION_NAME);
     private List<String> bookList = new ArrayList<String>();
     private ListView bookListView = null;
     private ImageView imageView = null;
@@ -177,7 +175,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-    public void callService(View view) {
+    public void callGetBooks(View view) {
         logger.debug("Get Books Begin");
         bookList.clear();
         AsyncTaskBookClient task = new AsyncTaskBookClient(this);
@@ -185,26 +183,33 @@ public class MainActivity extends AppCompatActivity {
         // Toast.makeText(getApplicationContext(), "Service Called", Toast.LENGTH_SHORT).show();
     }
 
+
+    public void callGetPets(View view) {
+        logger.info("Get Pets Begin");
+        Toast.makeText(getApplicationContext(), "Get Pets", Toast.LENGTH_SHORT).show();
+    }
+
+
+    public void callAddBook(View view) {
+        logger.debug("Add Book Begin");
+        Toast.makeText(getApplicationContext(), "Add Book", Toast.LENGTH_SHORT).show();
+        Intent theIntent = new Intent(this, AddBookActivity.class);
+        theIntent.putExtra("Parm1", "Captain");
+        startActivity(theIntent);
+    }
+
+    public void callAddPet(View view) {
+        Intent theIntent = new Intent(this, AddPetActivity.class);
+        startActivity(theIntent);
+    }
+
+
+
     public void buildError() {
         logger.debug("Main Activity build Error");
         Toast.makeText(getApplicationContext(), "Error Retrieving Data", Toast.LENGTH_SHORT).show();
     }
 
-    /*
-    private void parseResponse(String response) {
-        try {
-            JSONArray books = new JSONArray(response);
-            for (int i = 0; i < books.length(); i++) {
-                JSONObject book = books.getJSONObject(i);
-                String title = book.getString("title");
-                getBookList().add(title);
-                logger.debug("Added=" + title);
-            }
-        } catch (Exception e) {
-
-        }
-    }
-    */
 
 
     public void setImage(Bitmap bitmap) {
@@ -244,7 +249,7 @@ public class MainActivity extends AppCompatActivity {
             });
 
             layout.addView(bookListView);
-            Toast.makeText(getApplicationContext(), "Cool!!", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getApplicationContext(), "Book List Populated", Toast.LENGTH_SHORT).show();
 
         } catch (Exception e) {
             logger.debug("Error:\n" + e);

@@ -6,48 +6,34 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.ArrayAdapter;
-import android.widget.GridView;
+import android.view.View;
+import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.ListView;
 
 import com.rueggerllc.restlib.util.Logger;
 import com.rueggerllc.util.Constants;
 
-public class DisplayBookDetailsActivity extends AppCompatActivity {
+import java.util.ArrayList;
+import java.util.List;
+
+public class AddBookActivity extends AppCompatActivity {
 
     private Logger logger = new Logger(Constants.APPLICATION_NAME);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        logger.debug("AddBookActivity Startup BEGIN");
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_book_details);
-        logger.debug("DisplayBookActivity onCreate()");
-        Toolbar toolbar = (Toolbar)findViewById(R.id.tool_bar_details);
+        setContentView(R.layout.activity_addbook);
+
+        Toolbar toolbar = (Toolbar)findViewById(R.id.tool_bar);
         setSupportActionBar(toolbar);
 
-        // Get the book we were called with
-        Intent intent = getIntent();
-        String bookName = intent.getStringExtra(Constants.SELECTED_BOOK_MESSAGE);
+        Intent theIntent = getIntent();
 
-        //
-        GridView gridView = (GridView) findViewById(R.id.gridView1);
-
-        final String[] data = new String[] {
-                "Title:", bookName,
-                "later", "much"
-        };
-
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
-                android.R.layout.simple_list_item_1, data);
-        gridView.setAdapter(adapter);
-
-
-        // Toast.makeText(getApplicationContext(), bookName, Toast.LENGTH_SHORT).show();
+        logger.debug("AddBookActivity Startup END");
     }
-
-    public boolean superOnOptionsItemSelected(MenuItem item) {
-        return super.onOptionsItemSelected(item);
-    }
-
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -68,6 +54,9 @@ public class DisplayBookDetailsActivity extends AppCompatActivity {
 
             case R.id.action_home:
                 logger.debug("CHOSEN: HOME");
+                Intent theIntent = new Intent(this, MainActivity.class);
+                theIntent.putExtra("Later", "Much");
+                startActivity(theIntent);
                 return true;
 
             case R.id.action_favorite:
@@ -94,5 +83,26 @@ public class DisplayBookDetailsActivity extends AppCompatActivity {
 
     }
 
+    public boolean superOnOptionsItemSelected(MenuItem item) {
+        return super.onOptionsItemSelected(item);
+    }
+
+    public void addBook(View view) {
+        logger.debug("Add Book Submit BEGIN");
+        EditText titleText = (EditText) findViewById(R.id.title);
+        String title = titleText.getText().toString();
+
+        EditText numberOfPagesText = (EditText) findViewById(R.id.numberOfPages);
+        String numberOfPages = numberOfPagesText.getText().toString();
+
+        EditText publishDateText = (EditText) findViewById(R.id.publishDate);
+        String publishDate = publishDateText.getText().toString();
+
+        logger.info("title=" + title);
+        logger.info("numberOfPages=" + numberOfPages);
+        logger.info("publishDate=" + publishDate);
+
+
+    }
 
 }

@@ -9,7 +9,8 @@ import com.rueggerllc.restlib.beans.Book;
 import com.rueggerllc.restlib.beans.Order;
 import com.rueggerllc.restlib.client.BookClient;
 import com.rueggerllc.restlib.client.OrderClient;
-import com.rueggerllc.util.Logger;
+import com.rueggerllc.restlib.util.Logger;
+import com.rueggerllc.util.Constants;
 
 import java.util.List;
 
@@ -22,7 +23,7 @@ import java.util.List;
  */
 public class AsyncRestTask extends AsyncTask<String, Integer, List<Book>> {
 
-        private Logger logger = new Logger();
+        private Logger logger = new Logger(Constants.APPLICATION_NAME);
         private MainActivity mainActivity;
 
         public AsyncRestTask(MainActivity mainActivity) {

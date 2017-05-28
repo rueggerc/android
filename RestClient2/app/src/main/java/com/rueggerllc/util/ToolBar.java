@@ -5,10 +5,11 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 
 import com.rueggerllc.activities.R;
+import com.rueggerllc.restlib.util.Logger;
 
 public class ToolBar {
 
-    private static Logger logger = new Logger();
+    private static Logger logger = new Logger(Constants.APPLICATION_NAME);
 
     public boolean onOptionsItemSelected(AppCompatActivity activity, MenuItem item) {
 
