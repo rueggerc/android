@@ -1,21 +1,48 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/activity_add_pet"
-    android:layout_width="match_parent"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:orientation="vertical"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin" tools:context=".MainActivity">
+
 
     <include
         android:id="@+id/tool_bar"
         layout="@layout/tool_bar">
     </include>
 
+
     <Button
-        android:id="@+id/addPetButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Add Pet"
-        android:onClick="callAddPet"/>
+        android:text="Choose Image"
+        android:onClick="callChoosePetImage"
+        android:id="@+id/buttonChoosePetImage" />
+
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:id="@+id/imagePet" />
+
+
+    <EditText
+        android:id="@+id/petImageName"
+        android:hint="Enter a Name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <Button
+        android:id="@+id/buttonAddPet"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="callUploadImage"
+        android:text="Upload Image"/>
+
 
 </LinearLayout>

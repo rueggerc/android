@@ -41,7 +41,7 @@ public class AsyncRestTask extends AsyncTask<String, Integer, List<Book>> {
             Log.d("RestClient", "Async REST Task: " + urls[0]);
             Log.d("RestClient", "Connecting to Web Service!");
             ClientFactory clientFactory = ClientFactory.getInstance();
-            BookClient bookClient = clientFactory.getBookClient();
+            BookClient bookClient = clientFactory.getBookClient(urls[0]);
 
             List<Book> result = bookClient.getBooks();
             Log.d("RestClient", "Results=\n" + result);
@@ -78,7 +78,7 @@ public class AsyncRestTask extends AsyncTask<String, Integer, List<Book>> {
             logger.debug("====== GET ORDERS BEGIN =====");
             ClientFactory clientFactory = ClientFactory.getInstance();
             OrderClient orderClient = clientFactory.getOrderClient();
-            BookClient bookClient = clientFactory.getBookClient();
+            // BookClient bookClient = clientFactory.getBookClient();
 
             List<Order> orders = orderClient.getOrders();
             for (Order order : orders) {

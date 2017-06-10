@@ -8,6 +8,10 @@
     <string name="action_search">Search</string>
     <string name="action_folder">Folder</string>
 
+    <string name="book_client_endpoint">http://rueggerconsultingllc.com/RestWeb/rest/</string>
+    <string name="book_client_endpoint_local">http://192.168.1.167:8080/RestWeb/rest/</string>
+
+
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

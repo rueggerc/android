@@ -30,9 +30,12 @@ public class ClientFactory {
         return orderClient;
     }
 
-    public BookClient getBookClient() {
+    public BookClient getBookClient(String endpoint) {
         if (bookClient == null) {
             bookClient = new BookClient(APPLICATION);
+        }
+        if (endpoint != null) {
+            bookClient.setEndpoint(endpoint);
         }
         return bookClient;
     }
